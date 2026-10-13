@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Spanish Possessive Adjectives — Mi familia</title>
+<style>
+:root{font-family:system-ui,sans-serif;color:#192841;background:#f1f5fa}*{box-sizing:border-box}body{margin:0}main{max-width:900px;margin:auto;padding:32px 20px}.panel,.question{background:white;border:1px solid #dce4ee;border-radius:16px;padding:22px;margin:16px 0}h1{font-size:clamp(26px,5vw,40px);margin:0 0 12px}.intro,footer{color:#52647b;line-height:1.6}h2{font-size:clamp(22px,4vw,28px);line-height:1.5;margin:0 0 18px}.choices{display:flex;flex-wrap:wrap;gap:12px}.choices label{font-size:24px;font-weight:700;border:1px solid #bbc9dc;border-radius:9px;padding:11px 20px;cursor:pointer}input{margin-right:8px}button{font:inherit;border-radius:9px;padding:11px 15px;cursor:pointer;background:#245bd7;color:white;border:1px solid #245bd7}button:focus-visible,input:focus-visible{outline:3px solid #edab32;outline-offset:3px}.answer-correct{background:#dcfce7!important;border:2px solid #228352!important;color:#14532d}.answer-wrong{background:#fee2e2!important;border:2px solid #c74343!important;color:#991b1b}.choices label:has(input:disabled){cursor:default}.feedback{line-height:1.5;margin:12px 0 0}.blank-group{margin:16px 0}.blank-label{font-weight:600;margin:0 0 10px}.filled{color:#228352;text-decoration:underline}.result{font-size:20px;font-weight:700}footer{font-size:14px}#results{margin:0 0 16px}
+</style>
+</head>
+<body><main>
+<header class="panel"><h1>Mi familia</h1><p class="intro">Spanish possessive adjectives · Choose an answer for each blank. Each choice receives immediate feedback. Possessive adjectives agree with the noun that follows them.</p></header>
+<form id="quiz"><div id="questions"></div></form>
+<section class="panel"><p id="results" class="result" aria-live="polite"></p><button id="restart" type="button">Restart quiz</button></section>
+<footer>8 questions · 10 blanks · Works offline · Your answers stay in this tab.</footer>
+<script>
+const items=[
+ {parts:['Me llamo Patricia y quiero contarte un poco de ',' familia.'],answers:['mi'],choices:[['mi','mis','su','nuestra']],hints:['My + singular noun: mi familia.']},
+ {parts:['Somos un grupo divertido. ',' padre se llama Roberto y ',' madre se llama Sara.'],answers:['Mi','mi'],choices:[['Mi','Mis','Su','Nuestro'],['mi','mis','su','nuestra']],hints:['My + singular noun: Mi padre. Capitalize at the start of a sentence.','My + singular noun: mi madre.']},
+ {parts:['Ellos son muy simpáticos y ',' actividad favorita es jugar al golf.'],answers:['su'],choices:[['su','sus','mi','nuestra']],hints:['Their + singular noun: su actividad.']},
+ {parts:['Tengo tres hermanos y ',' nombres son Pablo, Raquel y Martín.'],answers:['sus'],choices:[['su','sus','mis','nuestros']],hints:['Their + plural noun: sus nombres.']},
+ {parts:['Pablo tiene diez años y ',' cumpleaños es el catorce de marzo.'],answers:['su'],choices:[['su','sus','mi','nuestro']],hints:['His + singular noun: su cumpleaños. Cumpleaños is singular here even though it ends in s.']},
+ {parts:['Raquel tiene catorce años y ',' amigos siempre están en ',' casa (de nosotros).'],answers:['sus','nuestra'],choices:[['su','sus','mis','nuestras'],['nuestro','nuestra','nuestros','nuestras']],hints:['Her + plural noun: sus amigos.','Our + singular feminine noun: nuestra casa.']},
+ {parts:['Toda la familia pasa mucho tiempo juntos. ',' actividad favorita es armar rompecabezas.'],answers:['Nuestra'],choices:[['Nuestro','Nuestra','Nuestros','Nuestras']],hints:['Our + singular feminine noun: Nuestra actividad. Capitalize at the start of a sentence.']},
+ {parts:['Amo a todos. ',' hermanos y padres son los mejores.'],answers:['Mis'],choices:[['Mi','Mis','Su','Nuestro']],hints:['My + plural nouns: Mis hermanos y padres.']}
+];
+const questions=document.querySelector('#questions'),results=document.querySelector('#results');
+let answered=0,score=0;
+function shuffle(values){const copy=[...values];for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]]}return copy}
+function updateScore(){results.textContent=(answered===10?'Final score: ':'Score: ')+score+' / '+answered+' · '+answered+' of 10 blanks answered'+(answered===10?' · '+Math.round(score/10*100)+'%':'')}
+function render(){
+ answered=0;score=0;questions.replaceChildren();
+ items.forEach((item,i)=>{
+  const card=document.createElement('section');card.className='question';
+  const heading=document.createElement('h2');heading.lang='es';heading.append((i+1)+'. ');
+  item.parts.forEach((part,j)=>{heading.append(part);if(j<item.answers.length){const blank=document.createElement('span');blank.id='blank-'+i+'-'+j;blank.textContent='______';heading.append(blank)}});card.append(heading);
+  item.answers.forEach((correct,j)=>{
+   const group=document.createElement('div');group.className='blank-group';
+   const title=document.createElement('p');title.className='blank-label';title.id='label-'+i+'-'+j;title.textContent=item.answers.length>1?'Blank '+(j+1):'Choose the missing word';group.append(title);
+   const options=document.createElement('div');options.className='choices';options.lang='es';options.setAttribute('role','group');options.setAttribute('aria-labelledby',title.id);
+   const feedback=document.createElement('p');feedback.className='feedback';feedback.setAttribute('aria-live','polite');
+   shuffle(item.choices[j]).forEach(choice=>{
+    const label=document.createElement('label'),input=document.createElement('input');input.type='radio';input.name='q'+i+'b'+j;input.value=choice;label.append(input,choice);options.append(label);
+    input.addEventListener('change',()=>{
+     const right=choice===correct;answered++;if(right)score++;
+     options.querySelectorAll('input').forEach(option=>{option.disabled=true;if(option.value===correct)option.closest('label').classList.add('answer-correct');else if(option.checked)option.closest('label').classList.add('answer-wrong')});
+     const blank=document.getElementById('blank-'+i+'-'+j);blank.textContent=correct;blank.className='filled';
+     feedback.textContent=(right?'Correct! ':'Incorrect. Correct answer: '+correct+'. ')+item.hints[j];updateScore();
+    });
+   });group.append(options,feedback);card.append(group);
+  });questions.append(card);
+ });updateScore();
+}
+document.querySelector('#quiz').addEventListener('submit',event=>event.preventDefault());
+document.querySelector('#restart').addEventListener('click',()=>{render();window.scrollTo({top:0,behavior:'smooth'})});
+render();
+</script></main></body></html>
