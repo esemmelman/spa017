@@ -2,6 +2,8 @@
 
 Eight supplied sentences with ten blanks, four shuffled choices per blank, immediate feedback, explanations, and a restart button. Incorrect answers from the original exercise have been corrected.
 
+Press any question to toggle that sentence between Spanish and English. Keyboard users can focus the question and press Enter or Space. Choices stay in Spanish, and switching languages preserves answers and scores.
+
 Practice online: https://esemmelman.github.io/spa017/
 
 Open `index.html` to practice offline. No dependencies or build step are needed.

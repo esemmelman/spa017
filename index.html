@@ -9,7 +9,7 @@
 </style>
 </head>
 <body><main>
-<header class="panel"><h1>Mi familia</h1><p class="intro">Spanish possessive adjectives · Choose an answer for each blank. Each choice receives immediate feedback. Possessive adjectives agree with the noun that follows them.</p></header>
+<header class="panel"><h1>Mi familia</h1><p class="intro">Spanish possessive adjectives · Choose an answer for each blank. Press a question to toggle its English translation. Each choice receives immediate feedback. Possessive adjectives agree with the noun that follows them.</p></header>
 <form id="quiz"><div id="questions"></div></form>
 <section class="panel"><p id="results" class="result" aria-live="polite"></p><button id="restart" type="button">Restart quiz</button></section>
 <footer>8 questions · 10 blanks · Works offline · Your answers stay in this tab.</footer>
@@ -24,16 +24,33 @@ const items=[
  {parts:['Toda la familia pasa mucho tiempo juntos. ',' actividad favorita es armar rompecabezas.'],answers:['Nuestra'],choices:[['Nuestro','Nuestra','Nuestros','Nuestras']],hints:['Our + singular feminine noun: Nuestra actividad. Capitalize at the start of a sentence.']},
  {parts:['Amo a todos. ',' hermanos y padres son los mejores.'],answers:['Mis'],choices:[['Mi','Mis','Su','Nuestro']],hints:['My + plural nouns: Mis hermanos y padres.']}
 ];
+const translations=[
+ {parts:['My name is Patricia, and I want to tell you a little about ',' family.'],answers:['my']},
+ {parts:['We are a fun group. ',' father is named Roberto, and ',' mother is named Sara.'],answers:['My','my']},
+ {parts:['They are very friendly, and ',' favorite activity is playing golf.'],answers:['their']},
+ {parts:['I have three siblings, and ',' names are Pablo, Raquel, and Martín.'],answers:['their']},
+ {parts:['Pablo is ten years old, and ',' birthday is March fourteenth.'],answers:['his']},
+ {parts:['Raquel is fourteen years old, and ',' friends are always at ',' house (belonging to us).'],answers:['her','our']},
+ {parts:['The whole family spends a lot of time together. ',' favorite activity is doing jigsaw puzzles.'],answers:['Our']},
+ {parts:['I love them all. ',' siblings and parents are the best.'],answers:['My']}
+];
 const questions=document.querySelector('#questions'),results=document.querySelector('#results');
-let answered=0,score=0;
+let answered=0,score=0,english=[],completed=[];
+function updateHeading(heading,i){
+ const item=english[i]?translations[i]:items[i];heading.replaceChildren();heading.lang=english[i]?'en':'es';heading.setAttribute('aria-pressed',String(english[i]));heading.append((i+1)+'. ');
+ item.parts.forEach((part,j)=>{heading.append(part);if(j<item.answers.length){const blank=document.createElement('span');blank.id='blank-'+i+'-'+j;blank.textContent=completed[i][j]?item.answers[j]:'______';if(completed[i][j])blank.className='filled';heading.append(blank)}});
+}
 function shuffle(values){const copy=[...values];for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]]}return copy}
 function updateScore(){results.textContent=(answered===10?'Final score: ':'Score: ')+score+' / '+answered+' · '+answered+' of 10 blanks answered'+(answered===10?' · '+Math.round(score/10*100)+'%':'')}
 function render(){
- answered=0;score=0;questions.replaceChildren();
+ answered=0;score=0;english=items.map(()=>false);completed=items.map(item=>item.answers.map(()=>false));questions.replaceChildren();
  items.forEach((item,i)=>{
   const card=document.createElement('section');card.className='question';
-  const heading=document.createElement('h2');heading.lang='es';heading.append((i+1)+'. ');
-  item.parts.forEach((part,j)=>{heading.append(part);if(j<item.answers.length){const blank=document.createElement('span');blank.id='blank-'+i+'-'+j;blank.textContent='______';heading.append(blank)}});card.append(heading);
+  const heading=document.createElement('h2');heading.tabIndex=0;heading.setAttribute('role','button');heading.title='Press to switch between Spanish and English';heading.style.cursor='pointer';
+  const toggle=()=>{english[i]=!english[i];updateHeading(heading,i)};
+  heading.addEventListener('click',toggle);
+  heading.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();toggle()}});
+  updateHeading(heading,i);card.append(heading);
   item.answers.forEach((correct,j)=>{
    const group=document.createElement('div');group.className='blank-group';
    const title=document.createElement('p');title.className='blank-label';title.id='label-'+i+'-'+j;title.textContent=item.answers.length>1?'Blank '+(j+1):'Choose the missing word';group.append(title);
@@ -44,7 +61,7 @@ function render(){
     input.addEventListener('change',()=>{
      const right=choice===correct;answered++;if(right)score++;
      options.querySelectorAll('input').forEach(option=>{option.disabled=true;if(option.value===correct)option.closest('label').classList.add('answer-correct');else if(option.checked)option.closest('label').classList.add('answer-wrong')});
-     const blank=document.getElementById('blank-'+i+'-'+j);blank.textContent=correct;blank.className='filled';
+     completed[i][j]=true;updateHeading(heading,i);
      feedback.textContent=(right?'Correct! ':'Incorrect. Correct answer: '+correct+'. ')+item.hints[j];updateScore();
     });
    });group.append(options,feedback);card.append(group);
