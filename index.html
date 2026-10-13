@@ -6,12 +6,12 @@
 <title>Preterite (Regular)</title>
 <style>
 :root{font-family:system-ui,sans-serif;color:#192841;background:#f1f5fa}*{box-sizing:border-box}body{margin:0;font-size:20px}main{max-width:900px;margin:auto;padding:32px 20px}.panel,.question{background:white;border:1px solid #dce4ee;border-radius:16px;padding:22px;margin:16px 0}h1{font-size:clamp(32px,6vw,48px);margin:0 0 12px}.intro,footer{color:#52647b;line-height:1.6}h2{font-size:clamp(36px,6vw,44px);line-height:1.5;margin:0 0 18px}.choices{display:flex;flex-wrap:wrap;gap:12px}.choices label{font-size:32px;font-weight:700;border:1px solid #bbc9dc;border-radius:9px;padding:11px 20px;cursor:pointer}input{margin-right:8px}button{font:inherit;border-radius:9px;padding:11px 15px;cursor:pointer;background:#245bd7;color:white;border:1px solid #245bd7}h2:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #edab32;outline-offset:3px}.answer-correct{background:#dcfce7!important;border:2px solid #228352!important;color:#14532d}.answer-wrong{background:#fee2e2!important;border:2px solid #c74343!important;color:#991b1b}.choices label:has(input:disabled){cursor:default}.feedback{line-height:1.5;margin:12px 0 0}.blank-group{margin:16px 0}.blank-label{font-weight:600;margin:0 0 10px}.filled{color:#228352;text-decoration:underline}.result{font-size:26px;font-weight:700}footer{font-size:18px}#results{margin:0 0 16px}
-.verb-bank{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:14px 20px;font-size:26px;line-height:1.4}
+.infinitives{position:sticky;top:0;z-index:10;box-shadow:0 4px 12px #1928411a}.verb-bank{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px 20px;font-size:32px;font-weight:700;line-height:1.4}.question{scroll-margin-top:260px}@media(max-width:600px){.infinitives{padding:14px;max-height:40vh;overflow:auto}.verb-bank{grid-template-columns:repeat(2,minmax(0,1fr));font-size:28px;gap:8px 12px}}
 </style>
 </head>
 <body><main>
 <header class="panel"><h1>Preterite (Regular)</h1></header>
-<section class="panel" aria-label="Infinitive verb bank"><div class="verb-bank" lang="es"><span>viajar</span><span>bañarse</span><span>despertarse</span><span>beber</span><span>hablar</span><span>vivir</span><span>vender</span><span>estudiar</span><span>comer</span><span>mirar</span><span>quitarse</span><span>escribir</span><span>gastar</span><span>correr</span><span>cantar</span></div></section>
+<section class="panel infinitives" aria-label="Infinitive verb bank"><div class="verb-bank" lang="es"><span>viajar</span><span>bañarse</span><span>despertarse</span><span>beber</span><span>hablar</span><span>vivir</span><span>vender</span><span>estudiar</span><span>comer</span><span>mirar</span><span>quitarse</span><span>escribir</span><span>gastar</span><span>correr</span><span>cantar</span></div></section>
 <form id="quiz"><div id="questions"></div></form>
 <section class="panel"><p id="results" class="result" aria-live="polite"></p><button id="restart" type="button">Restart quiz</button></section>
 <footer>14 questions · 17 blanks · Works offline · Your answers stay in this tab.</footer>
@@ -431,8 +431,8 @@ function render(){
   updateHeading(heading,i);card.append(heading);
   item.answers.forEach((correct,j)=>{
    const group=document.createElement('div');group.className='blank-group';
-   const title=document.createElement('p');title.className='blank-label';title.id='label-'+i+'-'+j;title.textContent=item.answers.length>1?'Blank '+(j+1):'Choose the missing word';group.append(title);
-   const options=document.createElement('div');options.className='choices';options.lang='es';options.setAttribute('role','group');options.setAttribute('aria-labelledby',title.id);
+   const title=document.createElement('p');title.className='blank-label';title.id='label-'+i+'-'+j;title.textContent='Blank '+(j+1);if(item.answers.length>1)group.append(title);
+   const options=document.createElement('div');options.className='choices';options.lang='es';options.setAttribute('role','group');options.setAttribute('aria-label','Question '+(i+1)+', blank '+(j+1));
    const feedback=document.createElement('p');feedback.className='feedback';feedback.setAttribute('aria-live','polite');
    shuffle(item.choices[j]).forEach(choice=>{
     const label=document.createElement('label'),input=document.createElement('input');input.type='radio';input.name='q'+i+'b'+j;input.value=choice;label.append(input,choice);options.append(label);
