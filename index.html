@@ -3,37 +3,354 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Spanish Possessive Adjectives — Mi familia</title>
+<title>spa017 — Spanish Reflexive Verbs</title>
 <style>
-:root{font-family:system-ui,sans-serif;color:#192841;background:#f1f5fa}*{box-sizing:border-box}body{margin:0}main{max-width:900px;margin:auto;padding:32px 20px}.panel,.question{background:white;border:1px solid #dce4ee;border-radius:16px;padding:22px;margin:16px 0}h1{font-size:clamp(26px,5vw,40px);margin:0 0 12px}.intro,footer{color:#52647b;line-height:1.6}h2{font-size:clamp(22px,4vw,28px);line-height:1.5;margin:0 0 18px}.choices{display:flex;flex-wrap:wrap;gap:12px}.choices label{font-size:24px;font-weight:700;border:1px solid #bbc9dc;border-radius:9px;padding:11px 20px;cursor:pointer}input{margin-right:8px}button{font:inherit;border-radius:9px;padding:11px 15px;cursor:pointer;background:#245bd7;color:white;border:1px solid #245bd7}button:focus-visible,input:focus-visible{outline:3px solid #edab32;outline-offset:3px}.answer-correct{background:#dcfce7!important;border:2px solid #228352!important;color:#14532d}.answer-wrong{background:#fee2e2!important;border:2px solid #c74343!important;color:#991b1b}.choices label:has(input:disabled){cursor:default}.feedback{line-height:1.5;margin:12px 0 0}.blank-group{margin:16px 0}.blank-label{font-weight:600;margin:0 0 10px}.filled{color:#228352;text-decoration:underline}.result{font-size:20px;font-weight:700}footer{font-size:14px}#results{margin:0 0 16px}
+:root{font-family:system-ui,sans-serif;color:#192841;background:#f1f5fa}*{box-sizing:border-box}body{margin:0}main{max-width:900px;margin:auto;padding:32px 20px}.panel,.question{background:white;border:1px solid #dce4ee;border-radius:16px;padding:22px;margin:16px 0}h1{font-size:clamp(26px,5vw,40px);margin:0 0 12px}.intro,footer{color:#52647b;line-height:1.6}h2{font-size:clamp(22px,4vw,28px);line-height:1.5;margin:0 0 18px}.choices{display:flex;flex-wrap:wrap;gap:12px}.choices label{font-size:24px;font-weight:700;border:1px solid #bbc9dc;border-radius:9px;padding:11px 20px;cursor:pointer}input{margin-right:8px}button{font:inherit;border-radius:9px;padding:11px 15px;cursor:pointer;background:#245bd7;color:white;border:1px solid #245bd7}h2:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #edab32;outline-offset:3px}.answer-correct{background:#dcfce7!important;border:2px solid #228352!important;color:#14532d}.answer-wrong{background:#fee2e2!important;border:2px solid #c74343!important;color:#991b1b}.choices label:has(input:disabled){cursor:default}.feedback{line-height:1.5;margin:12px 0 0}.blank-group{margin:16px 0}.blank-label{font-weight:600;margin:0 0 10px}.filled{color:#228352;text-decoration:underline}.result{font-size:20px;font-weight:700}footer{font-size:14px}#results{margin:0 0 16px}
 </style>
 </head>
 <body><main>
-<header class="panel"><h1>Mi familia</h1><p class="intro">Spanish possessive adjectives · Choose an answer for each blank. Press a question to toggle its English translation. Each choice receives immediate feedback. Possessive adjectives agree with the noun that follows them.</p><p class="intro"><a href="reflexive.html">Practice reflexive verbs — Daily routines</a></p></header>
+<header class="panel"><h1>spa017</h1><p class="intro">Spanish reflexive verbs · Present tense and infinitives · Choose an answer for each blank. Press a question to toggle its English translation.</p><p class="intro">Use ustedes for Linda y tú. <a href="possessives.html">Practice possessive adjectives</a></p></header>
 <form id="quiz"><div id="questions"></div></form>
 <section class="panel"><p id="results" class="result" aria-live="polite"></p><button id="restart" type="button">Restart quiz</button></section>
-<footer>8 questions · 10 blanks · Works offline · Your answers stay in this tab.</footer>
+<footer>10 questions · 18 blanks · Works offline · Your answers stay in this tab.</footer>
 <script>
 const items=[
- {parts:['Me llamo Patricia y quiero contarte un poco de ',' familia.'],answers:['mi'],choices:[['mi','mis','su','nuestra']],hints:['My + singular noun: mi familia.']},
- {parts:['Somos un grupo divertido. ',' padre se llama Roberto y ',' madre se llama Sara.'],answers:['Mi','mi'],choices:[['Mi','Mis','Su','Nuestro'],['mi','mis','su','nuestra']],hints:['My + singular noun: Mi padre. Capitalize at the start of a sentence.','My + singular noun: mi madre.']},
- {parts:['Ellos son muy simpáticos y ',' actividad favorita es jugar al golf.'],answers:['su'],choices:[['su','sus','mi','nuestra']],hints:['Their + singular noun: su actividad.']},
- {parts:['Tengo tres hermanos y ',' nombres son Pablo, Raquel y Martín.'],answers:['sus'],choices:[['su','sus','mis','nuestros']],hints:['Their + plural noun: sus nombres.']},
- {parts:['Pablo tiene diez años y ',' cumpleaños es el catorce de marzo.'],answers:['su'],choices:[['su','sus','mi','nuestro']],hints:['His + singular noun: su cumpleaños. Cumpleaños is singular here even though it ends in s.']},
- {parts:['Raquel tiene catorce años y ',' amigos siempre están en ',' casa (de nosotros).'],answers:['sus','nuestra'],choices:[['su','sus','mis','nuestras'],['nuestro','nuestra','nuestros','nuestras']],hints:['Her + plural noun: sus amigos.','Our + singular feminine noun: nuestra casa.']},
- {parts:['Toda la familia pasa mucho tiempo juntos. ',' actividad favorita es armar rompecabezas.'],answers:['Nuestra'],choices:[['Nuestro','Nuestra','Nuestros','Nuestras']],hints:['Our + singular feminine noun: Nuestra actividad. Capitalize at the start of a sentence.']},
- {parts:['Amo a todos. ',' hermanos y padres son los mejores.'],answers:['Mis'],choices:[['Mi','Mis','Su','Nuestro']],hints:['My + plural nouns: Mis hermanos y padres.']}
+ {
+  "parts": [
+   "Pablo ",
+   " ",
+   " (bañarse) a las siete de la mañana."
+  ],
+  "answers": [
+   "se",
+   "baña"
+  ],
+  "choices": [
+   [
+    "se",
+    "me",
+    "te",
+    "nos"
+   ],
+   [
+    "baña",
+    "baño",
+    "bañas",
+    "bañan"
+   ]
+  ],
+  "hints": [
+   "Pablo uses se and the third-person singular form baña.",
+   "Pablo uses se and the third-person singular form baña."
+  ]
+ },
+ {
+  "parts": [
+   "Yo ",
+   " ",
+   " (afeitarse) la barba a las cinco de la mañana."
+  ],
+  "answers": [
+   "me",
+   "afeito"
+  ],
+  "choices": [
+   [
+    "me",
+    "te",
+    "se",
+    "nos"
+   ],
+   [
+    "afeito",
+    "afeita",
+    "afeitas",
+    "afeitan"
+   ]
+  ],
+  "hints": [
+   "Yo uses me and afeito.",
+   "Yo uses me and afeito."
+  ]
+ },
+ {
+  "parts": [
+   "Nuria y yo ",
+   " ",
+   " (maquillarse) a las ocho de la mañana."
+  ],
+  "answers": [
+   "nos",
+   "maquillamos"
+  ],
+  "choices": [
+   [
+    "nos",
+    "se",
+    "me",
+    "os"
+   ],
+   [
+    "maquillamos",
+    "maquillan",
+    "maquillo",
+    "maquilláis"
+   ]
+  ],
+  "hints": [
+   "Nuria y yo means nosotros: nos maquillamos.",
+   "Nuria y yo means nosotros: nos maquillamos."
+  ]
+ },
+ {
+  "parts": [
+   "Sara y Manuel ",
+   " ",
+   " (vestirse) a las ocho y cuarto de la mañana."
+  ],
+  "answers": [
+   "se",
+   "visten"
+  ],
+  "choices": [
+   [
+    "se",
+    "nos",
+    "te",
+    "os"
+   ],
+   [
+    "visten",
+    "vesten",
+    "viste",
+    "vestimos"
+   ]
+  ],
+  "hints": [
+   "Ellos uses se. Vestirse changes e to i: visten.",
+   "Ellos uses se. Vestirse changes e to i: visten."
+  ]
+ },
+ {
+  "parts": [
+   "Alfonso ",
+   " ",
+   " (cepillarse) los dientes rápidamente."
+  ],
+  "answers": [
+   "se",
+   "cepilla"
+  ],
+  "choices": [
+   [
+    "se",
+    "me",
+    "te",
+    "nos"
+   ],
+   [
+    "cepilla",
+    "cepillo",
+    "cepillas",
+    "cepillan"
+   ]
+  ],
+  "hints": [
+   "Alfonso uses se and cepilla, the third-person singular form.",
+   "Alfonso uses se and cepilla, the third-person singular form."
+  ]
+ },
+ {
+  "parts": [
+   "¿A qué hora ",
+   " ",
+   " (acostarse) Ud.?"
+  ],
+  "answers": [
+   "se",
+   "acuesta"
+  ],
+  "choices": [
+   [
+    "se",
+    "te",
+    "me",
+    "nos"
+   ],
+   [
+    "acuesta",
+    "acuestan",
+    "acosta",
+    "acuesto"
+   ]
+  ],
+  "hints": [
+   "Usted uses se and the third-person singular form. Acostarse changes o to ue: acuesta.",
+   "Usted uses se and the third-person singular form. Acostarse changes o to ue: acuesta."
+  ]
+ },
+ {
+  "parts": [
+   "¿A qué hora ",
+   " ",
+   " (despertarse) Linda y tú por la mañana?"
+  ],
+  "answers": [
+   "se",
+   "despiertan"
+  ],
+  "choices": [
+   [
+    "se",
+    "te",
+    "nos",
+    "me"
+   ],
+   [
+    "despiertan",
+    "despierta",
+    "despertan",
+    "despiertas"
+   ]
+  ],
+  "hints": [
+   "Using ustedes for Linda y tú: se despiertan. In Spain, vosotros would use os despertáis.",
+   "Using ustedes for Linda y tú: se despiertan. In Spain, vosotros would use os despertáis."
+  ]
+ },
+ {
+  "parts": [
+   "Tú siempre ",
+   " ",
+   " (lavarse) las manos antes de comer, ¿no?"
+  ],
+  "answers": [
+   "te",
+   "lavas"
+  ],
+  "choices": [
+   [
+    "te",
+    "se",
+    "me",
+    "nos"
+   ],
+   [
+    "lavas",
+    "lava",
+    "lavo",
+    "lavan"
+   ]
+  ],
+  "hints": [
+   "Tú uses te and lavas.",
+   "Tú uses te and lavas."
+  ]
+ },
+ {
+  "parts": [
+   "Después de ",
+   " (ducharse), yo me seco con toalla."
+  ],
+  "answers": [
+   "ducharme"
+  ],
+  "choices": [
+   [
+    "ducharme",
+    "me ducho",
+    "ducharse",
+    "duchamos"
+   ]
+  ],
+  "hints": [
+   "After después de, use the infinitive. Attach me to duchar: ducharme."
+  ]
+ },
+ {
+  "parts": [
+   "Esta noche Yoli y yo vamos a ",
+   " (cortarse) el pelo nosotras mismas."
+  ],
+  "answers": [
+   "cortarnos"
+  ],
+  "choices": [
+   [
+    "cortarnos",
+    "cortamos",
+    "cortarse",
+    "nos cortamos"
+   ]
+  ],
+  "hints": [
+   "After vamos a, use the infinitive. Attach nos to cortar: cortarnos."
+  ]
+ }
 ];
 const translations=[
- {parts:['My name is Patricia, and I want to tell you a little about ',' family.'],answers:['my']},
- {parts:['We are a fun group. ',' father is named Roberto, and ',' mother is named Sara.'],answers:['My','my']},
- {parts:['They are very friendly, and ',' favorite activity is playing golf.'],answers:['their']},
- {parts:['I have three siblings, and ',' names are Pablo, Raquel, and Martín.'],answers:['their']},
- {parts:['Pablo is ten years old, and ',' birthday is March fourteenth.'],answers:['his']},
- {parts:['Raquel is fourteen years old, and ',' friends are always at ',' house (belonging to us).'],answers:['her','our']},
- {parts:['The whole family spends a lot of time together. ',' favorite activity is doing jigsaw puzzles.'],answers:['Our']},
- {parts:['I love them all. ',' siblings and parents are the best.'],answers:['My']}
+ {
+  "parts": [
+   "Pablo takes a bath at seven in the morning."
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "I shave my beard at five in the morning."
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "Nuria and I put on makeup at eight in the morning."
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "Sara and Manuel get dressed at eight fifteen in the morning."
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "Alfonso brushes his teeth quickly."
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "At what time do you go to bed? (formal singular)"
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "At what time do Linda and you wake up in the morning?"
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "You always wash your hands before eating, right?"
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "After showering, I dry myself with a towel."
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "Tonight Yoli and I are going to cut our hair ourselves."
+  ],
+  "answers": []
+ }
 ];
+const totalBlanks=items.reduce((total,item)=>total+item.answers.length,0);
 const questions=document.querySelector('#questions'),results=document.querySelector('#results');
 let answered=0,score=0,english=[],completed=[];
 function updateHeading(heading,i){
@@ -41,7 +358,7 @@ function updateHeading(heading,i){
  item.parts.forEach((part,j)=>{heading.append(part);if(j<item.answers.length){const blank=document.createElement('span');blank.id='blank-'+i+'-'+j;blank.textContent=completed[i][j]?item.answers[j]:'______';if(completed[i][j])blank.className='filled';heading.append(blank)}});
 }
 function shuffle(values){const copy=[...values];for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]]}return copy}
-function updateScore(){results.textContent=(answered===10?'Final score: ':'Score: ')+score+' / '+answered+' · '+answered+' of 10 blanks answered'+(answered===10?' · '+Math.round(score/10*100)+'%':'')}
+function updateScore(){results.textContent=(answered===totalBlanks?'Final score: ':'Score: ')+score+' / '+answered+' · '+answered+' of '+totalBlanks+' blanks answered'+(answered===totalBlanks?' · '+Math.round(score/totalBlanks*100)+'%':'')}
 function render(){
  answered=0;score=0;english=items.map(()=>false);completed=items.map(item=>item.answers.map(()=>false));questions.replaceChildren();
  items.forEach((item,i)=>{
