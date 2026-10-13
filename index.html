@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>spa017 — Spanish Reflexive Verbs</title>
+<title>spa017 — Gustar and Similar Verbs</title>
 <style>
 :root{font-family:system-ui,sans-serif;color:#192841;background:#f1f5fa}*{box-sizing:border-box}body{margin:0;font-size:20px}main{max-width:900px;margin:auto;padding:32px 20px}.panel,.question{background:white;border:1px solid #dce4ee;border-radius:16px;padding:22px;margin:16px 0}h1{font-size:clamp(32px,6vw,48px);margin:0 0 12px}.intro,footer{color:#52647b;line-height:1.6}h2{font-size:clamp(36px,6vw,44px);line-height:1.5;margin:0 0 18px}.choices{display:flex;flex-wrap:wrap;gap:12px}.choices label{font-size:32px;font-weight:700;border:1px solid #bbc9dc;border-radius:9px;padding:11px 20px;cursor:pointer}input{margin-right:8px}button{font:inherit;border-radius:9px;padding:11px 15px;cursor:pointer;background:#245bd7;color:white;border:1px solid #245bd7}h2:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #edab32;outline-offset:3px}.answer-correct{background:#dcfce7!important;border:2px solid #228352!important;color:#14532d}.answer-wrong{background:#fee2e2!important;border:2px solid #c74343!important;color:#991b1b}.choices label:has(input:disabled){cursor:default}.feedback{line-height:1.5;margin:12px 0 0}.blank-group{margin:16px 0}.blank-label{font-weight:600;margin:0 0 10px}.filled{color:#228352;text-decoration:underline}.result{font-size:26px;font-weight:700}footer{font-size:18px}#results{margin:0 0 16px}
 </style>
@@ -12,340 +12,358 @@
 <header class="panel"><h1>spa017</h1></header>
 <form id="quiz"><div id="questions"></div></form>
 <section class="panel"><p id="results" class="result" aria-live="polite"></p><button id="restart" type="button">Restart quiz</button></section>
-<footer>10 questions · 18 blanks · Works offline · Your answers stay in this tab.</footer>
+<footer>10 questions · 20 blanks · Works offline · Your answers stay in this tab.</footer>
 <script>
 const items=[
  {
   "parts": [
-   "Pablo ",
+   "A Beto y a mí ",
    " ",
-   " (bañarse) a las siete de la mañana."
-  ],
-  "answers": [
-   "se",
-   "baña"
-  ],
-  "choices": [
-   [
-    "se",
-    "me",
-    "te",
-    "nos"
-   ],
-   [
-    "baña",
-    "baño",
-    "bañas",
-    "bañan"
-   ]
-  ],
-  "hints": [
-   "Pablo uses se and the third-person singular form baña.",
-   "Pablo uses se and the third-person singular form baña."
-  ]
- },
- {
-  "parts": [
-   "Yo ",
-   " ",
-   " (afeitarse) la barba a las cinco de la mañana."
-  ],
-  "answers": [
-   "me",
-   "afeito"
-  ],
-  "choices": [
-   [
-    "me",
-    "te",
-    "se",
-    "nos"
-   ],
-   [
-    "afeito",
-    "afeita",
-    "afeitas",
-    "afeitan"
-   ]
-  ],
-  "hints": [
-   "Yo uses me and afeito.",
-   "Yo uses me and afeito."
-  ]
- },
- {
-  "parts": [
-   "Nuria y yo ",
-   " ",
-   " (maquillarse) a las ocho de la mañana."
+   " (gustar) el cine mexicano."
   ],
   "answers": [
    "nos",
-   "maquillamos"
+   "gusta"
   ],
   "choices": [
    [
-    "nos",
-    "se",
-    "me",
-    "os"
-   ],
-   [
-    "maquillamos",
-    "maquillan",
-    "maquillo",
-    "maquilláis"
-   ]
-  ],
-  "hints": [
-   "Nuria y yo means nosotros: nos maquillamos.",
-   "Nuria y yo means nosotros: nos maquillamos."
-  ]
- },
- {
-  "parts": [
-   "Sara y Manuel ",
-   " ",
-   " (vestirse) a las ocho y cuarto de la mañana."
-  ],
-  "answers": [
-   "se",
-   "visten"
-  ],
-  "choices": [
-   [
-    "se",
-    "nos",
-    "te",
-    "os"
-   ],
-   [
-    "visten",
-    "vesten",
-    "viste",
-    "vestimos"
-   ]
-  ],
-  "hints": [
-   "Ellos uses se. Vestirse changes e to i: visten.",
-   "Ellos uses se. Vestirse changes e to i: visten."
-  ]
- },
- {
-  "parts": [
-   "Alfonso ",
-   " ",
-   " (cepillarse) los dientes rápidamente."
-  ],
-  "answers": [
-   "se",
-   "cepilla"
-  ],
-  "choices": [
-   [
-    "se",
     "me",
     "te",
+    "le",
     "nos"
    ],
    [
-    "cepilla",
-    "cepillo",
-    "cepillas",
-    "cepillan"
+    "gusta",
+    "gustan",
+    "gustas",
+    "gustamos"
    ]
   ],
   "hints": [
-   "Alfonso uses se and cepilla, the third-person singular form.",
-   "Alfonso uses se and cepilla, the third-person singular form."
+   "A Beto y a mí uses nos. El cine mexicano is singular, so use gusta.",
+   "A Beto y a mí uses nos. El cine mexicano is singular, so use gusta."
   ]
  },
  {
   "parts": [
-   "¿A qué hora ",
+   "A Octavio ",
    " ",
-   " (acostarse) Ud.?"
+   " (interesar) los deportes."
   ],
   "answers": [
-   "se",
-   "acuesta"
+   "le",
+   "interesan"
   ],
   "choices": [
    [
-    "se",
-    "te",
     "me",
-    "nos"
+    "te",
+    "nos",
+    "le"
    ],
    [
-    "acuesta",
-    "acuestan",
-    "acosta",
-    "acuesto"
+    "interesan",
+    "interesa",
+    "interesas",
+    "interesamos"
    ]
   ],
   "hints": [
-   "Usted uses se and the third-person singular form. Acostarse changes o to ue: acuesta.",
-   "Usted uses se and the third-person singular form. Acostarse changes o to ue: acuesta."
+   "A Octavio uses le. Los deportes is plural, so use interesan.",
+   "A Octavio uses le. Los deportes is plural, so use interesan."
   ]
  },
  {
   "parts": [
-   "¿A qué hora ",
+   "A mis amigos ",
    " ",
-   " (despertarse) Linda y tú por la mañana?"
+   " (fascinar) el arte moderno."
   ],
   "answers": [
-   "se",
-   "despiertan"
+   "les",
+   "fascina"
   ],
   "choices": [
    [
-    "se",
+    "me",
     "te",
+    "le",
+    "les"
+   ],
+   [
+    "fascina",
+    "fascinan",
+    "fascinas",
+    "fascinamos"
+   ]
+  ],
+  "hints": [
+   "A mis amigos uses les. El arte moderno is singular, so use fascina.",
+   "A mis amigos uses les. El arte moderno is singular, so use fascina."
+  ]
+ },
+ {
+  "parts": [
+   "A mí lo que ",
+   " ",
+   " (encantar) es comer tacos de pescado al sol."
+  ],
+  "answers": [
+   "me",
+   "encanta"
+  ],
+  "choices": [
+   [
+    "te",
+    "le",
     "nos",
     "me"
    ],
    [
-    "despiertan",
-    "despierta",
-    "despertan",
-    "despiertas"
+    "encanta",
+    "encantan",
+    "encantas",
+    "encantamos"
    ]
   ],
   "hints": [
-   "Using ustedes for Linda y tú: se despiertan. In Spain, vosotros would use os despertáis.",
-   "Using ustedes for Linda y tú: se despiertan. In Spain, vosotros would use os despertáis."
+   "A mí uses me. The activity comer tacos de pescado takes singular encanta.",
+   "A mí uses me. The activity comer tacos de pescado takes singular encanta."
   ]
  },
  {
   "parts": [
-   "Tú siempre ",
+   "¿A ti ",
    " ",
-   " (lavarse) las manos antes de comer, ¿no?"
+   " (gustar) jugar deportes?"
   ],
   "answers": [
    "te",
-   "lavas"
+   "gusta"
+  ],
+  "choices": [
+   [
+    "me",
+    "le",
+    "nos",
+    "te"
+   ],
+   [
+    "gusta",
+    "gustan",
+    "gustas",
+    "gustamos"
+   ]
+  ],
+  "hints": [
+   "A ti uses te. An infinitive activity takes singular gusta.",
+   "A ti uses te. An infinitive activity takes singular gusta."
+  ]
+ },
+ {
+  "parts": [
+   "¿A Ud. ",
+   " ",
+   " (doler) las rodillas después de caerse?"
+  ],
+  "answers": [
+   "le",
+   "duelen"
+  ],
+  "choices": [
+   [
+    "me",
+    "te",
+    "nos",
+    "le"
+   ],
+   [
+    "duelen",
+    "duele",
+    "dolen",
+    "dueles"
+   ]
+  ],
+  "hints": [
+   "A usted uses le. Las rodillas is plural; doler changes o to ue: duelen.",
+   "A usted uses le. Las rodillas is plural; doler changes o to ue: duelen."
+  ]
+ },
+ {
+  "parts": [
+   "A mí ",
+   " ",
+   " (interesar) las películas de ciencia ficción."
+  ],
+  "answers": [
+   "me",
+   "interesan"
   ],
   "choices": [
    [
     "te",
-    "se",
-    "me",
-    "nos"
+    "le",
+    "nos",
+    "me"
    ],
    [
-    "lavas",
-    "lava",
-    "lavo",
-    "lavan"
+    "interesan",
+    "interesa",
+    "interesas",
+    "interesamos"
    ]
   ],
   "hints": [
-   "Tú uses te and lavas.",
-   "Tú uses te and lavas."
+   "A mí uses me. Las películas is plural, so use interesan.",
+   "A mí uses me. Las películas is plural, so use interesan."
   ]
  },
  {
   "parts": [
-   "Después de ",
-   " (ducharse), yo me seco con toalla."
+   "A Concepción y a Marta ",
+   " ",
+   " (encantar) los perros pequeños."
   ],
   "answers": [
-   "ducharme"
+   "les",
+   "encantan"
   ],
   "choices": [
    [
-    "ducharme",
-    "me ducho",
-    "ducharse",
-    "duchamos"
+    "me",
+    "te",
+    "le",
+    "les"
+   ],
+   [
+    "encantan",
+    "encanta",
+    "encantas",
+    "encantamos"
    ]
   ],
   "hints": [
-   "After después de, use the infinitive. Attach me to duchar: ducharme."
+   "Two people use les. Los perros pequeños is plural, so use encantan.",
+   "Two people use les. Los perros pequeños is plural, so use encantan."
   ]
  },
  {
   "parts": [
-   "Esta noche Yoli y yo vamos a ",
-   " (cortarse) el pelo nosotras mismas."
+   "A Paula ",
+   " ",
+   " (parecer) muy aburrido ese nuevo programa de chismes."
   ],
   "answers": [
-   "cortarnos"
+   "le",
+   "parece"
   ],
   "choices": [
    [
-    "cortarnos",
-    "cortamos",
-    "cortarse",
-    "nos cortamos"
+    "me",
+    "te",
+    "nos",
+    "le"
+   ],
+   [
+    "parece",
+    "parecen",
+    "pareces",
+    "parecemos"
    ]
   ],
   "hints": [
-   "After vamos a, use the infinitive. Attach nos to cortar: cortarnos."
+   "A Paula uses le. Ese nuevo programa is singular, so use parece.",
+   "A Paula uses le. Ese nuevo programa is singular, so use parece."
+  ]
+ },
+ {
+  "parts": [
+   "A Juan y a ti ",
+   " ",
+   " (gustar) cepillarse los dientes con Crest, ¿verdad?"
+  ],
+  "answers": [
+   "les",
+   "gusta"
+  ],
+  "choices": [
+   [
+    "me",
+    "te",
+    "le",
+    "les"
+   ],
+   [
+    "gusta",
+    "gustan",
+    "gustas",
+    "gustamos"
+   ]
+  ],
+  "hints": [
+   "Using ustedes for Juan y tú: les. The activity cepillarse los dientes takes singular gusta.",
+   "Using ustedes for Juan y tú: les. The activity cepillarse los dientes takes singular gusta."
   ]
  }
 ];
 const translations=[
  {
   "parts": [
-   "Pablo takes a bath at seven in the morning."
+   "Beto and I like Mexican cinema."
   ],
   "answers": []
  },
  {
   "parts": [
-   "I shave my beard at five in the morning."
+   "Octavio is interested in sports."
   ],
   "answers": []
  },
  {
   "parts": [
-   "Nuria and I put on makeup at eight in the morning."
+   "My friends are fascinated by modern art."
   ],
   "answers": []
  },
  {
   "parts": [
-   "Sara and Manuel get dressed at eight fifteen in the morning."
+   "What I love is eating fish tacos in the sun."
   ],
   "answers": []
  },
  {
   "parts": [
-   "Alfonso brushes his teeth quickly."
+   "Do you like playing sports?"
   ],
   "answers": []
  },
  {
   "parts": [
-   "At what time do you go to bed? (formal singular)"
+   "Do your knees hurt after you fall? (formal singular)"
   ],
   "answers": []
  },
  {
   "parts": [
-   "At what time do Linda and you wake up in the morning?"
+   "I am interested in science fiction movies."
   ],
   "answers": []
  },
  {
   "parts": [
-   "You always wash your hands before eating, right?"
+   "Concepción and Marta love small dogs."
   ],
   "answers": []
  },
  {
   "parts": [
-   "After showering, I dry myself with a towel."
+   "That new gossip show seems very boring to Paula."
   ],
   "answers": []
  },
  {
   "parts": [
-   "Tonight Yoli and I are going to cut our hair ourselves."
+   "Juan and you like brushing your teeth with Crest, right?"
   ],
   "answers": []
  }
