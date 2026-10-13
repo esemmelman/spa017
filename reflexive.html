@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Spanish Reflexive Verbs — Daily routines</title>
+<style>
+:root{font-family:system-ui,sans-serif;color:#192841;background:#f1f5fa}*{box-sizing:border-box}body{margin:0}main{max-width:900px;margin:auto;padding:32px 20px}.panel,.question{background:white;border:1px solid #dce4ee;border-radius:16px;padding:22px;margin:16px 0}h1{font-size:clamp(26px,5vw,40px);margin:0 0 12px}.intro,footer{color:#52647b;line-height:1.6}h2{font-size:clamp(22px,4vw,28px);line-height:1.5;margin:0 0 18px}.choices{display:flex;flex-wrap:wrap;gap:12px}.choices label{font-size:24px;font-weight:700;border:1px solid #bbc9dc;border-radius:9px;padding:11px 20px;cursor:pointer}input{margin-right:8px}button{font:inherit;border-radius:9px;padding:11px 15px;cursor:pointer;background:#245bd7;color:white;border:1px solid #245bd7}h2:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #edab32;outline-offset:3px}.answer-correct{background:#dcfce7!important;border:2px solid #228352!important;color:#14532d}.answer-wrong{background:#fee2e2!important;border:2px solid #c74343!important;color:#991b1b}.choices label:has(input:disabled){cursor:default}.feedback{line-height:1.5;margin:12px 0 0}.blank-group{margin:16px 0}.blank-label{font-weight:600;margin:0 0 10px}.filled{color:#228352;text-decoration:underline}.result{font-size:20px;font-weight:700}footer{font-size:14px}#results{margin:0 0 16px}
+</style>
+</head>
+<body><main>
+<header class="panel"><h1>Daily routines</h1><p class="intro">Spanish reflexive verbs · Present tense and infinitives · Choose an answer for each blank. Press a question to toggle its English translation.</p><p class="intro">Use ustedes for Linda y tú. <a href="index.html">Practice possessive adjectives</a></p></header>
+<form id="quiz"><div id="questions"></div></form>
+<section class="panel"><p id="results" class="result" aria-live="polite"></p><button id="restart" type="button">Restart quiz</button></section>
+<footer>10 questions · 18 blanks · Works offline · Your answers stay in this tab.</footer>
+<script>
+const items=[
+ {
+  "parts": [
+   "Pablo ",
+   " ",
+   " (bañarse) a las siete de la mañana."
+  ],
+  "answers": [
+   "se",
+   "baña"
+  ],
+  "choices": [
+   [
+    "se",
+    "me",
+    "te",
+    "nos"
+   ],
+   [
+    "baña",
+    "baño",
+    "bañas",
+    "bañan"
+   ]
+  ],
+  "hints": [
+   "Pablo uses se and the third-person singular form baña.",
+   "Pablo uses se and the third-person singular form baña."
+  ]
+ },
+ {
+  "parts": [
+   "Yo ",
+   " ",
+   " (afeitarse) la barba a las cinco de la mañana."
+  ],
+  "answers": [
+   "me",
+   "afeito"
+  ],
+  "choices": [
+   [
+    "me",
+    "te",
+    "se",
+    "nos"
+   ],
+   [
+    "afeito",
+    "afeita",
+    "afeitas",
+    "afeitan"
+   ]
+  ],
+  "hints": [
+   "Yo uses me and afeito.",
+   "Yo uses me and afeito."
+  ]
+ },
+ {
+  "parts": [
+   "Nuria y yo ",
+   " ",
+   " (maquillarse) a las ocho de la mañana."
+  ],
+  "answers": [
+   "nos",
+   "maquillamos"
+  ],
+  "choices": [
+   [
+    "nos",
+    "se",
+    "me",
+    "os"
+   ],
+   [
+    "maquillamos",
+    "maquillan",
+    "maquillo",
+    "maquilláis"
+   ]
+  ],
+  "hints": [
+   "Nuria y yo means nosotros: nos maquillamos.",
+   "Nuria y yo means nosotros: nos maquillamos."
+  ]
+ },
+ {
+  "parts": [
+   "Sara y Manuel ",
+   " ",
+   " (vestirse) a las ocho y cuarto de la mañana."
+  ],
+  "answers": [
+   "se",
+   "visten"
+  ],
+  "choices": [
+   [
+    "se",
+    "nos",
+    "te",
+    "os"
+   ],
+   [
+    "visten",
+    "vesten",
+    "viste",
+    "vestimos"
+   ]
+  ],
+  "hints": [
+   "Ellos uses se. Vestirse changes e to i: visten.",
+   "Ellos uses se. Vestirse changes e to i: visten."
+  ]
+ },
+ {
+  "parts": [
+   "Alfonso ",
+   " ",
+   " (cepillarse) los dientes rápidamente."
+  ],
+  "answers": [
+   "se",
+   "cepilla"
+  ],
+  "choices": [
+   [
+    "se",
+    "me",
+    "te",
+    "nos"
+   ],
+   [
+    "cepilla",
+    "cepillo",
+    "cepillas",
+    "cepillan"
+   ]
+  ],
+  "hints": [
+   "Alfonso uses se and cepilla, the third-person singular form.",
+   "Alfonso uses se and cepilla, the third-person singular form."
+  ]
+ },
+ {
+  "parts": [
+   "¿A qué hora ",
+   " ",
+   " (acostarse) Ud.?"
+  ],
+  "answers": [
+   "se",
+   "acuesta"
+  ],
+  "choices": [
+   [
+    "se",
+    "te",
+    "me",
+    "nos"
+   ],
+   [
+    "acuesta",
+    "acuestan",
+    "acosta",
+    "acuesto"
+   ]
+  ],
+  "hints": [
+   "Usted uses se and the third-person singular form. Acostarse changes o to ue: acuesta.",
+   "Usted uses se and the third-person singular form. Acostarse changes o to ue: acuesta."
+  ]
+ },
+ {
+  "parts": [
+   "¿A qué hora ",
+   " ",
+   " (despertarse) Linda y tú por la mañana?"
+  ],
+  "answers": [
+   "se",
+   "despiertan"
+  ],
+  "choices": [
+   [
+    "se",
+    "te",
+    "nos",
+    "me"
+   ],
+   [
+    "despiertan",
+    "despierta",
+    "despertan",
+    "despiertas"
+   ]
+  ],
+  "hints": [
+   "Using ustedes for Linda y tú: se despiertan. In Spain, vosotros would use os despertáis.",
+   "Using ustedes for Linda y tú: se despiertan. In Spain, vosotros would use os despertáis."
+  ]
+ },
+ {
+  "parts": [
+   "Tú siempre ",
+   " ",
+   " (lavarse) las manos antes de comer, ¿no?"
+  ],
+  "answers": [
+   "te",
+   "lavas"
+  ],
+  "choices": [
+   [
+    "te",
+    "se",
+    "me",
+    "nos"
+   ],
+   [
+    "lavas",
+    "lava",
+    "lavo",
+    "lavan"
+   ]
+  ],
+  "hints": [
+   "Tú uses te and lavas.",
+   "Tú uses te and lavas."
+  ]
+ },
+ {
+  "parts": [
+   "Después de ",
+   " (ducharse), yo me seco con toalla."
+  ],
+  "answers": [
+   "ducharme"
+  ],
+  "choices": [
+   [
+    "ducharme",
+    "me ducho",
+    "ducharse",
+    "duchamos"
+   ]
+  ],
+  "hints": [
+   "After después de, use the infinitive. Attach me to duchar: ducharme."
+  ]
+ },
+ {
+  "parts": [
+   "Esta noche Yoli y yo vamos a ",
+   " (cortarse) el pelo nosotras mismas."
+  ],
+  "answers": [
+   "cortarnos"
+  ],
+  "choices": [
+   [
+    "cortarnos",
+    "cortamos",
+    "cortarse",
+    "nos cortamos"
+   ]
+  ],
+  "hints": [
+   "After vamos a, use the infinitive. Attach nos to cortar: cortarnos."
+  ]
+ }
+];
+const translations=[
+ {
+  "parts": [
+   "Pablo takes a bath at seven in the morning."
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "I shave my beard at five in the morning."
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "Nuria and I put on makeup at eight in the morning."
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "Sara and Manuel get dressed at eight fifteen in the morning."
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "Alfonso brushes his teeth quickly."
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "At what time do you go to bed? (formal singular)"
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "At what time do Linda and you wake up in the morning?"
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "You always wash your hands before eating, right?"
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "After showering, I dry myself with a towel."
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "Tonight Yoli and I are going to cut our hair ourselves."
+  ],
+  "answers": []
+ }
+];
+const totalBlanks=items.reduce((total,item)=>total+item.answers.length,0);
+const questions=document.querySelector('#questions'),results=document.querySelector('#results');
+let answered=0,score=0,english=[],completed=[];
+function updateHeading(heading,i){
+ const item=english[i]?translations[i]:items[i];heading.replaceChildren();heading.lang=english[i]?'en':'es';heading.setAttribute('aria-pressed',String(english[i]));heading.append((i+1)+'. ');
+ item.parts.forEach((part,j)=>{heading.append(part);if(j<item.answers.length){const blank=document.createElement('span');blank.id='blank-'+i+'-'+j;blank.textContent=completed[i][j]?item.answers[j]:'______';if(completed[i][j])blank.className='filled';heading.append(blank)}});
+}
+function shuffle(values){const copy=[...values];for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]]}return copy}
+function updateScore(){results.textContent=(answered===totalBlanks?'Final score: ':'Score: ')+score+' / '+answered+' · '+answered+' of '+totalBlanks+' blanks answered'+(answered===totalBlanks?' · '+Math.round(score/totalBlanks*100)+'%':'')}
+function render(){
+ answered=0;score=0;english=items.map(()=>false);completed=items.map(item=>item.answers.map(()=>false));questions.replaceChildren();
+ items.forEach((item,i)=>{
+  const card=document.createElement('section');card.className='question';
+  const heading=document.createElement('h2');heading.tabIndex=0;heading.setAttribute('role','button');heading.title='Press to switch between Spanish and English';heading.style.cursor='pointer';
+  const toggle=()=>{english[i]=!english[i];updateHeading(heading,i)};
+  heading.addEventListener('click',toggle);
+  heading.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();toggle()}});
+  updateHeading(heading,i);card.append(heading);
+  item.answers.forEach((correct,j)=>{
+   const group=document.createElement('div');group.className='blank-group';
+   const title=document.createElement('p');title.className='blank-label';title.id='label-'+i+'-'+j;title.textContent=item.answers.length>1?'Blank '+(j+1):'Choose the missing word';group.append(title);
+   const options=document.createElement('div');options.className='choices';options.lang='es';options.setAttribute('role','group');options.setAttribute('aria-labelledby',title.id);
+   const feedback=document.createElement('p');feedback.className='feedback';feedback.setAttribute('aria-live','polite');
+   shuffle(item.choices[j]).forEach(choice=>{
+    const label=document.createElement('label'),input=document.createElement('input');input.type='radio';input.name='q'+i+'b'+j;input.value=choice;label.append(input,choice);options.append(label);
+    input.addEventListener('change',()=>{
+     const right=choice===correct;answered++;if(right)score++;
+     options.querySelectorAll('input').forEach(option=>{option.disabled=true;if(option.value===correct)option.closest('label').classList.add('answer-correct');else if(option.checked)option.closest('label').classList.add('answer-wrong')});
+     completed[i][j]=true;updateHeading(heading,i);
+     feedback.textContent=(right?'Correct! ':'Incorrect. Correct answer: '+correct+'. ')+item.hints[j];updateScore();
+    });
+   });group.append(options,feedback);card.append(group);
+  });questions.append(card);
+ });updateScore();
+}
+document.querySelector('#quiz').addEventListener('submit',event=>event.preventDefault());
+document.querySelector('#restart').addEventListener('click',()=>{render();window.scrollTo({top:0,behavior:'smooth'})});
+render();
+</script></main></body></html>
