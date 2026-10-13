@@ -3,367 +3,410 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>spa017 — Gustar and Similar Verbs</title>
+<title>Preterite (Regular)</title>
 <style>
 :root{font-family:system-ui,sans-serif;color:#192841;background:#f1f5fa}*{box-sizing:border-box}body{margin:0;font-size:20px}main{max-width:900px;margin:auto;padding:32px 20px}.panel,.question{background:white;border:1px solid #dce4ee;border-radius:16px;padding:22px;margin:16px 0}h1{font-size:clamp(32px,6vw,48px);margin:0 0 12px}.intro,footer{color:#52647b;line-height:1.6}h2{font-size:clamp(36px,6vw,44px);line-height:1.5;margin:0 0 18px}.choices{display:flex;flex-wrap:wrap;gap:12px}.choices label{font-size:32px;font-weight:700;border:1px solid #bbc9dc;border-radius:9px;padding:11px 20px;cursor:pointer}input{margin-right:8px}button{font:inherit;border-radius:9px;padding:11px 15px;cursor:pointer;background:#245bd7;color:white;border:1px solid #245bd7}h2:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #edab32;outline-offset:3px}.answer-correct{background:#dcfce7!important;border:2px solid #228352!important;color:#14532d}.answer-wrong{background:#fee2e2!important;border:2px solid #c74343!important;color:#991b1b}.choices label:has(input:disabled){cursor:default}.feedback{line-height:1.5;margin:12px 0 0}.blank-group{margin:16px 0}.blank-label{font-weight:600;margin:0 0 10px}.filled{color:#228352;text-decoration:underline}.result{font-size:26px;font-weight:700}footer{font-size:18px}#results{margin:0 0 16px}
+.verb-bank{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:14px 20px;font-size:26px;line-height:1.4}
 </style>
 </head>
 <body><main>
-<header class="panel"><h1>spa017</h1></header>
+<header class="panel"><h1>Preterite (Regular)</h1></header>
+<section class="panel" aria-label="Infinitive verb bank"><div class="verb-bank" lang="es"><span>viajar</span><span>bañarse</span><span>despertarse</span><span>beber</span><span>hablar</span><span>vivir</span><span>vender</span><span>estudiar</span><span>comer</span><span>mirar</span><span>quitarse</span><span>escribir</span><span>gastar</span><span>correr</span><span>cantar</span></div></section>
 <form id="quiz"><div id="questions"></div></form>
 <section class="panel"><p id="results" class="result" aria-live="polite"></p><button id="restart" type="button">Restart quiz</button></section>
-<footer>10 questions · 20 blanks · Works offline · Your answers stay in this tab.</footer>
+<footer>14 questions · 17 blanks · Works offline · Your answers stay in this tab.</footer>
 <script>
 const items=[
  {
   "parts": [
-   "A Beto y a mí ",
-   " ",
-   " (gustar) el cine mexicano."
+   "El verano pasado nosotros ",
+   " a Alaska."
   ],
   "answers": [
-   "nos",
-   "gusta"
+   "viajamos"
   ],
   "choices": [
    [
-    "me",
-    "te",
-    "le",
-    "nos"
-   ],
-   [
-    "gusta",
-    "gustan",
-    "gustas",
-    "gustamos"
+    "viajamos",
+    "viajaron",
+    "viajé",
+    "viajó"
    ]
   ],
   "hints": [
-   "A Beto y a mí uses nos. El cine mexicano is singular, so use gusta.",
-   "A Beto y a mí uses nos. El cine mexicano is singular, so use gusta."
+   "Nosotros: viajar → viajamos."
   ]
  },
  {
   "parts": [
-   "A Octavio ",
-   " ",
-   " (interesar) los deportes."
+   "Mi papá ",
+   " su carro y compró una Tesla."
   ],
   "answers": [
-   "le",
-   "interesan"
+   "vendió"
   ],
   "choices": [
    [
-    "me",
-    "te",
-    "nos",
-    "le"
-   ],
-   [
-    "interesan",
-    "interesa",
-    "interesas",
-    "interesamos"
+    "vendió",
+    "vendí",
+    "vendieron",
+    "vendiste"
    ]
   ],
   "hints": [
-   "A Octavio uses le. Los deportes is plural, so use interesan.",
-   "A Octavio uses le. Los deportes is plural, so use interesan."
+   "Él: vender → vendió."
   ]
  },
  {
   "parts": [
-   "A mis amigos ",
-   " ",
-   " (fascinar) el arte moderno."
+   "¿Cuánto dinero ",
+   " Uds. en el supermercado?"
   ],
   "answers": [
-   "les",
-   "fascina"
+   "gastaron"
   ],
   "choices": [
    [
-    "me",
-    "te",
-    "le",
-    "les"
-   ],
-   [
-    "fascina",
-    "fascinan",
-    "fascinas",
-    "fascinamos"
+    "gastaron",
+    "gastamos",
+    "gastó",
+    "gastaste"
    ]
   ],
   "hints": [
-   "A mis amigos uses les. El arte moderno is singular, so use fascina.",
-   "A mis amigos uses les. El arte moderno is singular, so use fascina."
+   "Ustedes: gastar → gastaron."
   ]
  },
  {
   "parts": [
-   "A mí lo que ",
-   " ",
-   " (encantar) es comer tacos de pescado al sol."
+   "Mi hermano ",
+   " una película interesante ayer."
   ],
   "answers": [
-   "me",
-   "encanta"
+   "miró"
   ],
   "choices": [
    [
-    "te",
-    "le",
-    "nos",
-    "me"
-   ],
-   [
-    "encanta",
-    "encantan",
-    "encantas",
-    "encantamos"
+    "miró",
+    "miré",
+    "miraron",
+    "miraste"
    ]
   ],
   "hints": [
-   "A mí uses me. The activity comer tacos de pescado takes singular encanta.",
-   "A mí uses me. The activity comer tacos de pescado takes singular encanta."
+   "Él: mirar → miró."
   ]
  },
  {
   "parts": [
-   "¿A ti ",
+   "El equipo de campo y pista (track and field) ",
+   " en la playa la semana pasada."
+  ],
+  "answers": [
+   "corrió"
+  ],
+  "choices": [
+   [
+    "corrió",
+    "corrieron",
+    "corrí",
+    "corriste"
+   ]
+  ],
+  "hints": [
+   "El equipo is singular: correr → corrió."
+  ]
+ },
+ {
+  "parts": [
+   "¿",
    " ",
-   " (gustar) jugar deportes?"
+   " esta mañana antes de cepillarte los dientes?"
   ],
   "answers": [
    "te",
-   "gusta"
+   "bañaste"
   ],
   "choices": [
    [
-    "me",
-    "le",
-    "nos",
-    "te"
-   ],
-   [
-    "gusta",
-    "gustan",
-    "gustas",
-    "gustamos"
-   ]
-  ],
-  "hints": [
-   "A ti uses te. An infinitive activity takes singular gusta.",
-   "A ti uses te. An infinitive activity takes singular gusta."
-  ]
- },
- {
-  "parts": [
-   "¿A Ud. ",
-   " ",
-   " (doler) las rodillas después de caerse?"
-  ],
-  "answers": [
-   "le",
-   "duelen"
-  ],
-  "choices": [
-   [
-    "me",
     "te",
-    "nos",
-    "le"
+    "me",
+    "se",
+    "nos"
    ],
    [
-    "duelen",
-    "duele",
-    "dolen",
-    "dueles"
+    "bañaste",
+    "bañó",
+    "bañé",
+    "bañaron"
    ]
   ],
   "hints": [
-   "A usted uses le. Las rodillas is plural; doler changes o to ue: duelen.",
-   "A usted uses le. Las rodillas is plural; doler changes o to ue: duelen."
+   "Tú: bañarse → te bañaste.",
+   "Tú: bañarse → te bañaste."
   ]
  },
  {
   "parts": [
-   "A mí ",
+   "Estoy muy cansada porque ",
    " ",
-   " (interesar) las películas de ciencia ficción."
+   " a las cuatro de la mañana."
   ],
   "answers": [
    "me",
-   "interesan"
-  ],
-  "choices": [
-   [
-    "te",
-    "le",
-    "nos",
-    "me"
-   ],
-   [
-    "interesan",
-    "interesa",
-    "interesas",
-    "interesamos"
-   ]
-  ],
-  "hints": [
-   "A mí uses me. Las películas is plural, so use interesan.",
-   "A mí uses me. Las películas is plural, so use interesan."
-  ]
- },
- {
-  "parts": [
-   "A Concepción y a Marta ",
-   " ",
-   " (encantar) los perros pequeños."
-  ],
-  "answers": [
-   "les",
-   "encantan"
+   "desperté"
   ],
   "choices": [
    [
     "me",
     "te",
-    "le",
-    "les"
+    "se",
+    "nos"
    ],
    [
-    "encantan",
-    "encanta",
-    "encantas",
-    "encantamos"
+    "desperté",
+    "despertó",
+    "despertaste",
+    "despertaron"
    ]
   ],
   "hints": [
-   "Two people use les. Los perros pequeños is plural, so use encantan.",
-   "Two people use les. Los perros pequeños is plural, so use encantan."
+   "Yo: despertarse → me desperté. There is no stem change in the preterite of this -ar verb.",
+   "Yo: despertarse → me desperté. There is no stem change in the preterite of this -ar verb."
   ]
  },
  {
   "parts": [
-   "A Paula ",
-   " ",
-   " (parecer) muy aburrido ese nuevo programa de chismes."
+   "Mi hermanito ",
+   " demasiado Coca-Cola, y ahora no se siente bien."
   ],
   "answers": [
-   "le",
-   "parece"
+   "bebió"
+  ],
+  "choices": [
+   [
+    "bebió",
+    "bebí",
+    "bebieron",
+    "bebiste"
+   ]
+  ],
+  "hints": [
+   "Él: beber → bebió."
+  ]
+ },
+ {
+  "parts": [
+   "Anoche nosotros ",
+   " arroz con pollo para la cena."
+  ],
+  "answers": [
+   "comimos"
+  ],
+  "choices": [
+   [
+    "comimos",
+    "comieron",
+    "comí",
+    "comió"
+   ]
+  ],
+  "hints": [
+   "Nosotros: comer → comimos."
+  ]
+ },
+ {
+  "parts": [
+   "Mi profesora estaba enojada porque yo ",
+   " inglés en la clase de español."
+  ],
+  "answers": [
+   "hablé"
+  ],
+  "choices": [
+   [
+    "hablé",
+    "habló",
+    "hablaste",
+    "hablaron"
+   ]
+  ],
+  "hints": [
+   "Yo: hablar → hablé."
+  ]
+ },
+ {
+  "parts": [
+   "Mis padres ",
+   " en Puerto Rico por diez años."
+  ],
+  "answers": [
+   "vivieron"
+  ],
+  "choices": [
+   [
+    "vivieron",
+    "vivió",
+    "vivimos",
+    "viajaron"
+   ]
+  ],
+  "hints": [
+   "Ellos: vivir → vivieron. No accent on the ellos form."
+  ]
+ },
+ {
+  "parts": [
+   "Nosotros ",
+   " un ensayo en la clase de inglés ayer."
+  ],
+  "answers": [
+   "escribimos"
+  ],
+  "choices": [
+   [
+    "escribimos",
+    "escribieron",
+    "escribí",
+    "escribió"
+   ]
+  ],
+  "hints": [
+   "Nosotros: escribir → escribimos."
+  ]
+ },
+ {
+  "parts": [
+   "¿",
+   " tú para el examen de química?"
+  ],
+  "answers": [
+   "estudiaste"
+  ],
+  "choices": [
+   [
+    "estudiaste",
+    "estudié",
+    "estudió",
+    "estudiaron"
+   ]
+  ],
+  "hints": [
+   "Tú: estudiar → estudiaste."
+  ]
+ },
+ {
+  "parts": [
+   "Cuando yo entré en la casa ",
+   " ",
+   " los zapatos."
+  ],
+  "answers": [
+   "me",
+   "quité"
   ],
   "choices": [
    [
     "me",
     "te",
-    "nos",
-    "le"
+    "se",
+    "nos"
    ],
    [
-    "parece",
-    "parecen",
-    "pareces",
-    "parecemos"
+    "quité",
+    "quitó",
+    "quitaste",
+    "quitaron"
    ]
   ],
   "hints": [
-   "A Paula uses le. Ese nuevo programa is singular, so use parece.",
-   "A Paula uses le. Ese nuevo programa is singular, so use parece."
-  ]
- },
- {
-  "parts": [
-   "A Juan y a ti ",
-   " ",
-   " (gustar) cepillarse los dientes con Crest, ¿verdad?"
-  ],
-  "answers": [
-   "les",
-   "gusta"
-  ],
-  "choices": [
-   [
-    "me",
-    "te",
-    "le",
-    "les"
-   ],
-   [
-    "gusta",
-    "gustan",
-    "gustas",
-    "gustamos"
-   ]
-  ],
-  "hints": [
-   "Using ustedes for Juan y tú: les. The activity cepillarse los dientes takes singular gusta.",
-   "Using ustedes for Juan y tú: les. The activity cepillarse los dientes takes singular gusta."
+   "Yo: quitarse → me quité.",
+   "Yo: quitarse → me quité."
   ]
  }
 ];
 const translations=[
  {
   "parts": [
-   "Beto and I like Mexican cinema."
+   "Last summer we traveled to Alaska."
   ],
   "answers": []
  },
  {
   "parts": [
-   "Octavio is interested in sports."
+   "My dad sold his car and bought a Tesla."
   ],
   "answers": []
  },
  {
   "parts": [
-   "My friends are fascinated by modern art."
+   "How much money did you spend at the supermarket? (plural)"
   ],
   "answers": []
  },
  {
   "parts": [
-   "What I love is eating fish tacos in the sun."
+   "My brother watched an interesting movie yesterday."
   ],
   "answers": []
  },
  {
   "parts": [
-   "Do you like playing sports?"
+   "The track and field team ran on the beach last week."
   ],
   "answers": []
  },
  {
   "parts": [
-   "Do your knees hurt after you fall? (formal singular)"
+   "Did you take a bath this morning before brushing your teeth?"
   ],
   "answers": []
  },
  {
   "parts": [
-   "I am interested in science fiction movies."
+   "I am very tired because I woke up at four in the morning."
   ],
   "answers": []
  },
  {
   "parts": [
-   "Concepción and Marta love small dogs."
+   "My little brother drank too much Coca-Cola, and now he does not feel well."
   ],
   "answers": []
  },
  {
   "parts": [
-   "That new gossip show seems very boring to Paula."
+   "Last night we ate rice with chicken for dinner."
   ],
   "answers": []
  },
  {
   "parts": [
-   "Juan and you like brushing your teeth with Crest, right?"
+   "My teacher was angry because I spoke English in Spanish class."
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "My parents lived in Puerto Rico for ten years."
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "We wrote an essay in English class yesterday."
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "Did you study for the chemistry exam?"
+  ],
+  "answers": []
+ },
+ {
+  "parts": [
+   "When I entered the house, I took off my shoes."
   ],
   "answers": []
  }
