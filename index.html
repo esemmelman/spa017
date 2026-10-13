@@ -16,6 +16,14 @@
 <section class="panel"><p id="results" class="result" aria-live="polite"></p><button id="restart" type="button">Restart quiz</button></section>
 <footer>14 questions · 17 blanks · Works offline · Your answers stay in this tab.</footer>
 <script>
+const infinitiveTranslations=['to travel','to bathe','to wake up','to drink','to speak','to live','to sell','to study','to eat','to watch','to take off','to write','to spend','to run','to sing'];
+document.querySelectorAll('.verb-bank span').forEach((word,i)=>{
+ const spanish=word.textContent;let english=false;
+ word.tabIndex=0;word.setAttribute('role','button');word.setAttribute('aria-pressed','false');word.title='Press to switch between Spanish and English';word.style.cursor='pointer';word.lang='es';
+ const toggle=()=>{english=!english;word.textContent=english?infinitiveTranslations[i]:spanish;word.lang=english?'en':'es';word.setAttribute('aria-pressed',String(english))};
+ word.addEventListener('click',toggle);
+ word.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();toggle()}});
+});
 const items=[
  {
   "parts": [
